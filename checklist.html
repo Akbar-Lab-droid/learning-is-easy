@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist — Learning Is Easy with Aiproxcrop</title>
+<meta name="description" content="International student starter checklist — visa, housing, bank, SIM, health insurance, and more.">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">L</span>
+      <span class="logo-text"><b>Learning Is Easy</b><span>with Aiproxcrop</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="books.html">Books</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="methods.html">How to Study</a></li>
+      <li><a href="after.html">After Graduation</a></li>
+      <li><a href="checklist.html" class="active" aria-current="page">Checklist</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <div class="eyebrow">Checklist</div>
+      <h1>International student starter checklist</h1>
+      <p>Just arrived in a new country? Tick these off one by one. Your progress saves in this browser.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="checklist reveal" id="checklistBox">
+        <label class="check-item"><input type="checkbox"><span><b>Visa &amp; documents ready</b><span>Passport, visa, admission letter, and copies — digital and paper.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Housing sorted</b><span>Dorm or apartment confirmed before you land. Know your address.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Bank account opened</b><span>Local account for rent, food, and part-time job payments.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Local SIM card</b><span>Data and calls from day one — maps, messages, and emergencies.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Health insurance active</b><span>Required in most countries. Know what it covers and where to go.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Campus orientation attended</b><span>Meet the international office, find your classrooms, and ask questions.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Student ID &amp; email set up</b><span>Your ID unlocks the library, discounts, and campus systems.</span></span></label>
+        <label class="check-item"><input type="checkbox"><span><b>Joined a community</b><span>A student club, a study group, or your country's student association.</span></span></label>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Your progress</span><span id="progressText">0 of 8 done</span></div>
+          <div class="progress-track"><i id="progressBar"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <h2>Learning is easy — when you know where to look.</h2>
+    <p>Learning Is Easy with Aiproxcrop is a free collection of books, videos, study methods, and career paths for international students. All external links belong to their owners.</p>
+    <div class="foot-links">
+      <a href="books.html">Books</a>
+      <a href="videos.html">Videos</a>
+      <a href="methods.html">How to Study</a>
+      <a href="after.html">After Graduation</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="https://github.com/Akbar-Lab-Droid/learning-is-easy" target="_blank" rel="noopener">GitHub Repo</a>
+      <a href="https://github.com/AIPROXCROP" target="_blank" rel="noopener">Aiproxcrop</a>
+    </div>
+    <div class="foot-bottom">Curated by Aiproxcrop · Learning Is Easy with Aiproxcrop · Made for students everywhere</div>
+  </div>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  var header = document.getElementById("siteHeader");
+  var topBtn = document.getElementById("topBtn");
+  function onScroll(){
+    header.classList.toggle("scrolled", window.scrollY > 10);
+    topBtn.classList.toggle("show", window.scrollY > 600);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  topBtn.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+
+  var burger = document.getElementById("burger");
+  var navLinks = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){ navLinks.classList.toggle("open"); });
+  navLinks.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ navLinks.classList.remove("open"); });
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  var boxes = document.querySelectorAll("#checklistBox input[type=checkbox]");
+  var progressBar = document.getElementById("progressBar");
+  var progressText = document.getElementById("progressText");
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem("lie-checklist") || "{}"); } catch(e){ saved = {}; }
+  function updateProgress(){
+    var done = 0;
+    boxes.forEach(function(box, i){
+      box.checked = !!saved[i];
+      box.closest(".check-item").classList.toggle("done", box.checked);
+      if(box.checked) done++;
+    });
+    progressBar.style.width = (done / boxes.length * 100) + "%";
+    progressText.textContent = done + " of " + boxes.length + " done";
+    try { localStorage.setItem("lie-checklist", JSON.stringify(saved)); } catch(e){}
+  }
+  boxes.forEach(function(box, i){
+    box.addEventListener("change", function(){ saved[i] = box.checked; updateProgress(); });
+  });
+  updateProgress();
+})();
+</script>
+</body>
+</html>

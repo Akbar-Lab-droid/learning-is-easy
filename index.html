@@ -5,560 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Learning Is Easy with Aiproxcrop — Books, Videos &amp; Study Guides for International Students</title>
 <meta name="description" content="Everything an international student needs: the best books, free YouTube lessons, proven study methods, and a clear path after graduation.">
+<link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --cream:#FFF9F0; --paper:#FFFFFF; --ink:#1F2937; --dim:#5B6472;
-  --teal:#0F766E; --teal-dark:#0B5A53; --teal-soft:#E6F4F2;
-  --amber:#F59E0B; --amber-soft:#FEF3C7; --coral:#E85D3D; --coral-soft:#FDEEE8;
-  --blue:#2563EB; --blue-soft:#E8EEFE; --violet:#7C3AED; --violet-soft:#F1EAFE;
-  --green:#16A34A; --green-soft:#E8F7EE;
-  --border:#EADFCB; --radius:18px;
-  --shadow:0 6px 24px rgba(31,41,55,.08);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-tap-highlight-color:transparent}
-h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif}
-a{color:var(--teal);text-decoration:none}
-a:hover{text-decoration:underline}
-button{font-family:inherit;touch-action:manipulation}
-.container{max-width:1120px;margin:0 auto;padding:0 22px}
-:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:6px}
-
-/* ---------- NAV ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,249,240,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
-header.scrolled{box-shadow:0 4px 20px rgba(31,41,55,.08)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:11px;color:var(--ink)}
-.logo:hover{text-decoration:none}
-.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem}
-.logo-text{line-height:1.15}
-.logo-text b{font-family:'Fraunces',serif;font-size:1.05rem;display:block}
-.logo-text span{font-size:.72rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
-.nav-links{display:flex;gap:26px;list-style:none}
-.nav-links a{color:var(--ink);font-weight:600;font-size:.92rem}
-.nav-links a:hover{color:var(--teal);text-decoration:none}
-.nav-cta{background:var(--teal);color:#fff;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:99px}
-.nav-cta:hover{background:var(--teal-dark);text-decoration:none}
-.burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink);padding:6px}
-
-/* ---------- HERO ---------- */
-.hero{padding:150px 0 70px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 15% 10%,#FEF3C7 0%,transparent 60%),radial-gradient(600px 320px at 88% 20%,#E6F4F2 0%,transparent 60%);pointer-events:none}
-.hero-inner{position:relative}
-.hero-badge{display:inline-block;background:var(--amber-soft);color:#92400E;font-weight:700;font-size:.82rem;padding:7px 14px;border-radius:99px;margin-bottom:20px}
-.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.08;font-weight:900;letter-spacing:-.01em}
-.hero h1 em{font-style:normal;color:var(--teal)}
-.hero h1 .hl{background:linear-gradient(180deg,transparent 62%,var(--amber-soft) 62%);padding:0 4px}
-.hero p.lead{max-width:640px;margin:20px auto 0;font-size:1.15rem;color:var(--dim)}
-.hero-actions{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:99px;font-weight:700;font-size:1rem;border:0;cursor:pointer;min-height:48px}
-.btn-teal{background:var(--teal);color:#fff}
-.btn-teal:hover{background:var(--teal-dark);text-decoration:none}
-.btn-ghost{background:var(--paper);color:var(--ink);border:2px solid var(--border)}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:820px;margin:48px auto 0}
-.stat{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:20px 10px;box-shadow:var(--shadow)}
-.stat .num{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--teal)}
-.stat .label{font-size:.82rem;color:var(--dim);font-weight:600}
-
-/* ---------- SECTIONS ---------- */
-.section{padding:72px 0}
-.section-head{max-width:680px;margin:0 auto 38px;text-align:center}
-.kicker{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
-.section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;line-height:1.15;margin-top:10px}
-.section-head p{color:var(--dim);margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(31,41,55,.12)}
-.tag{align-self:flex-start;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;margin-bottom:12px}
-.tag-teal{background:var(--teal-soft);color:var(--teal-dark)}
-.tag-amber{background:var(--amber-soft);color:#92400E}
-.tag-coral{background:var(--coral-soft);color:#9A3412}
-.tag-blue{background:var(--blue-soft);color:#1E40AF}
-.tag-violet{background:var(--violet-soft);color:#5B21B6}
-.tag-green{background:var(--green-soft);color:#166534}
-.card h3{font-size:1.18rem;font-weight:700;line-height:1.3}
-.card .by{font-size:.88rem;color:var(--dim);margin-top:4px}
-.card p{font-size:.95rem;color:var(--dim);margin-top:10px;flex:1}
-.card .meta{font-size:.85rem;font-weight:600;color:var(--ink);margin-top:14px}
-.card .link{margin-top:14px;font-weight:700;font-size:.92rem}
-.card .link::after{content:" →"}
-.note-card{background:var(--amber-soft);border:1px dashed #D9A406;border-radius:var(--radius);padding:24px}
-.note-card h3{font-size:1.15rem}
-.note-card p{color:#57534E;margin-top:8px;font-size:.95rem}
-
-/* filter buttons */
-.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-.filter-btn{padding:10px 18px;border-radius:99px;border:2px solid var(--border);background:var(--paper);font-weight:700;font-size:.9rem;cursor:pointer;min-height:44px}
-.filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
-.hidden{display:none!important}
-
-/* timeline / paths */
-.path{display:flex;gap:18px}
-.path-num{flex:0 0 46px;height:46px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.2rem}
-.path h3{margin-top:6px}
-
-/* checklist */
-.checklist{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);max-width:720px;margin:0 auto}
-.check-item{display:flex;gap:14px;align-items:flex-start;padding:14px 4px;border-bottom:1px solid #F1E7D6;cursor:pointer}
-.check-item:last-child{border-bottom:0}
-.check-item input{width:22px;height:22px;accent-color:var(--teal);margin-top:3px;flex:0 0 22px;cursor:pointer}
-.check-item b{display:block;font-size:1rem}
-.check-item span{font-size:.9rem;color:var(--dim)}
-.check-item.done b,.check-item.done span{text-decoration:line-through;opacity:.55}
-.progress-wrap{margin-top:22px}
-.progress-label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;margin-bottom:8px}
-.progress-track{height:12px;border-radius:99px;background:#F1E7D6;overflow:hidden}
-.progress-track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));border-radius:99px;transition:width .5s ease}
-
-/* ---------- FOOTER ---------- */
-footer{background:#14201F;color:#D7DEDC;padding:56px 0 34px;margin-top:20px}
-footer h2{color:#fff;font-size:1.7rem}
-footer p{color:#9FB3AF;margin-top:10px;max-width:560px}
-.foot-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px}
-.foot-links a{color:#FDE68A;font-weight:600}
-.foot-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.85rem;color:#7A8A86}
-#topBtn{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;border:0;font-size:1.3rem;cursor:pointer;box-shadow:0 6px 20px rgba(15,118,110,.4);display:none;z-index:90}
-#topBtn.show{display:block}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-
-@media (max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .stats{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:760px){
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .burger{display:block}
-  .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--cream);padding:18px 22px 24px;gap:16px;border-bottom:1px solid var(--border)}
-  .section{padding:56px 0}
-  .hero{padding:120px 0 56px}
-}
-@media (max-width:560px){
-  .grid,.grid-2{grid-template-columns:1fr}
-  .hero-actions .btn{flex:1 1 100%;justify-content:center}
-  .card{padding:20px}
-}
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  html{scroll-behavior:auto}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ================= NAV ================= -->
 <header id="siteHeader">
   <div class="container nav">
-    <a class="logo" href="#top">
+    <a class="logo" href="index.html">
       <span class="logo-mark">L</span>
       <span class="logo-text"><b>Learning Is Easy</b><span>with Aiproxcrop</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#books">Books</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#methods">How to Study</a></li>
-      <li><a href="#after">After Graduation</a></li>
-      <li><a href="#checklist">Checklist</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="methods.html">How to Study</a></li>
+      <li><a href="after.html">After Graduation</a></li>
+      <li><a href="checklist.html">Checklist</a></li>
     </ul>
-    <a class="nav-cta" href="#books">Start Learning</a>
     <button class="burger" id="burger" aria-label="Menu">☰</button>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="top">
-  <div class="container hero-inner">
-    <span class="hero-badge">For international students, everywhere</span>
-    <h1>Learning Is <em>Easy</em><br>with <span class="hl">Aiproxcrop</span></h1>
-    <p class="lead">Everything an international student needs in one place — the best books, free YouTube lessons, proven study methods, and a clear map of what comes after your degree.</p>
-    <div class="hero-actions">
-      <a class="btn btn-teal" href="#books">Explore Books</a>
-      <a class="btn btn-ghost" href="#videos">Watch &amp; Learn</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="num" data-count="10">0</div><div class="label">Essential books</div></div>
-      <div class="stat"><div class="num" data-count="10">0</div><div class="label">YouTube channels</div></div>
-      <div class="stat"><div class="num" data-count="8">0</div><div class="label">Study methods</div></div>
-      <div class="stat"><div class="num" data-count="8">0</div><div class="label">Career paths</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= BOOKS ================= -->
-<section class="section" id="books">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Start here</span>
-      <h2>Books that change how you study</h2>
-      <p>Ten books every international student should read — from focus and memory to academic writing. The last one is completely free.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>Deep Work</h3>
-        <div class="by">Cal Newport</div>
-        <p>Learn to focus without distraction in a world full of notifications — the single most valuable skill for a student abroad.</p>
-        <div class="meta">Best for: focus &amp; concentration</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Deep_Work" target="_blank" rel="noopener">About the book</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-amber">Mindset</span>
-        <h3>Atomic Habits</h3>
-        <div class="by">James Clear</div>
-        <p>Tiny habits, remarkable results. Build a study routine that survives busy semesters, homesickness, and exam season.</p>
-        <div class="meta">Best for: building study habits</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Atomic_Habits" target="_blank" rel="noopener">About the book</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>Make It Stick</h3>
-        <div class="by">Peter C. Brown, Henry L. Roediger III &amp; Mark A. McDaniel</div>
-        <p>The science of successful learning. Why re-reading fails, and how retrieval practice and spacing make knowledge stay.</p>
-        <div class="meta">Best for: memory that lasts</div>
-        <a class="link" href="https://www.hup.harvard.edu/books/9780674729018" target="_blank" rel="noopener">Publisher's page</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>A Mind for Numbers</h3>
-        <div class="by">Barbara Oakley</div>
-        <p>How to excel at math and science even if you flunked them before — chunking, diffuse thinking, and beating procrastination.</p>
-        <div class="meta">Best for: math &amp; science students</div>
-        <a class="link" href="https://barbaraoakley.com/" target="_blank" rel="noopener">Author's site</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>Ultralearning</h3>
-        <div class="by">Scott H. Young</div>
-        <p>Master hard skills fast with self-directed, intense learning projects — the exact skill international students need.</p>
-        <div class="meta">Best for: learning anything fast</div>
-        <a class="link" href="https://www.scotthyoung.com/" target="_blank" rel="noopener">Author's site</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-amber">Mindset</span>
-        <h3>The 7 Habits of Highly Effective People</h3>
-        <div class="by">Stephen R. Covey</div>
-        <p>A classic framework for personal effectiveness: begin with the end in mind, put first things first, and think win-win.</p>
-        <div class="meta">Best for: life &amp; career mindset</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People" target="_blank" rel="noopener">About the book</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-blue">Academic</span>
-        <h3>How to Read a Book</h3>
-        <div class="by">Mortimer J. Adler &amp; Charles Van Doren</div>
-        <p>Reading is a skill, not a talent. Learn inspectional, analytical, and syntopical reading to get through heavy course loads.</p>
-        <div class="meta">Best for: heavy reading loads</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/How_to_Read_a_Book" target="_blank" rel="noopener">About the book</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>How to Win at College</h3>
-        <div class="by">Cal Newport</div>
-        <p>75 practical tips for college success — from taking smart notes to building a standout schedule, without burning out.</p>
-        <div class="meta">Best for: first-year students</div>
-        <a class="link" href="https://www.calnewport.com/books/how-to-win-at-college/" target="_blank" rel="noopener">Author's page</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-blue">Academic Writing</span>
-        <h3>They Say / I Say</h3>
-        <div class="by">Gerald Graff &amp; Cathy Birkenstein</div>
-        <p>The moves that matter in academic writing — templates that help non-native speakers write clear, confident essays.</p>
-        <div class="meta">Best for: essays in English</div>
-        <a class="link" href="https://wwnorton.com/books/9780393538736" target="_blank" rel="noopener">Publisher's page</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-green">Free</span>
-        <h3>OpenStax Textbooks</h3>
-        <div class="by">Rice University — free &amp; peer-reviewed</div>
-        <p>Complete university textbooks — biology, economics, psychology, physics, and more — free to read online or download.</p>
-        <div class="meta">Best for: saving money on textbooks</div>
-        <a class="link" href="https://openstax.org/subjects" target="_blank" rel="noopener">Browse free textbooks</a>
-      </article>
-    </div>
-    <div class="note-card reveal" style="margin-top:18px">
-      <h3>More free books</h3>
-      <p>Project Gutenberg offers over 70,000 free classic books — great for improving your English reading. <a href="https://www.gutenberg.org/" target="_blank" rel="noopener">Visit gutenberg.org →</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= YOUTUBE ================= -->
-<section class="section" id="videos" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Free lessons</span>
-      <h2>Learn from YouTube — free, forever</h2>
-      <p>Ten channels that teach better than most lectures. Subscribe, watch one video a day, and your grades will notice.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal">
-        <span class="tag tag-coral">All Subjects</span>
-        <h3>CrashCourse</h3>
-        <p>Fast, fun, beautifully animated courses — history, biology, chemistry, economics, psychology, and more.</p>
-        <div class="meta">Best for: quick course overviews</div>
-        <a class="link" href="https://www.youtube.com/@crashcourse" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-blue">Math &amp; Science</span>
-        <h3>Khan Academy</h3>
-        <p>Free lessons from the basics to university level — math, science, economics, computing, and test prep.</p>
-        <div class="meta">Best for: filling knowledge gaps</div>
-        <a class="link" href="https://www.youtube.com/@khanacademy" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-violet">Ideas</span>
-        <h3>TED-Ed</h3>
-        <p>Short animated lessons that explain big ideas — perfect for curious minds and essay inspiration.</p>
-        <div class="meta">Best for: curiosity &amp; critical thinking</div>
-        <a class="link" href="https://www.youtube.com/@TEDEd" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>Thomas Frank</h3>
-        <p>Practical study skills, productivity systems, and student life advice — made by a student, for students.</p>
-        <div class="meta">Best for: studying smarter, not longer</div>
-        <a class="link" href="https://www.youtube.com/@ThomasFrank" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-teal">Study Skills</span>
-        <h3>Ali Abdaal</h3>
-        <p>Evidence-based study techniques from a Cambridge medicine graduate — active recall, spaced repetition, and focus.</p>
-        <div class="meta">Best for: evidence-based techniques</div>
-        <a class="link" href="https://www.youtube.com/@aliabdaal" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-blue">Math &amp; Science</span>
-        <h3>The Organic Chemistry Tutor</h3>
-        <p>Step-by-step math and science tutorials — algebra to calculus, physics to chemistry, explained slowly and clearly.</p>
-        <div class="meta">Best for: exam problem-solving</div>
-        <a class="link" href="https://www.youtube.com/@TheOrganicChemistryTutor" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-blue">Science</span>
-        <h3>Professor Dave Explains</h3>
-        <p>Science made simple — chemistry, physics, and biology in clear, short videos with great visuals.</p>
-        <div class="meta">Best for: science fundamentals</div>
-        <a class="link" href="https://www.youtube.com/@ProfessorDaveExplains" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-amber">University Lectures</span>
-        <h3>MIT OpenCourseWare</h3>
-        <p>Real MIT lectures and full courses, free for everyone — the closest thing to attending MIT from your room.</p>
-        <div class="meta">Best for: deep university courses</div>
-        <a class="link" href="https://www.youtube.com/@mitocw" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-green">Coding</span>
-        <h3>freeCodeCamp.org</h3>
-        <p>Full-length programming courses — Python, JavaScript, web development, data science, and more. Zero cost.</p>
-        <div class="meta">Best for: learning to code</div>
-        <a class="link" href="https://www.youtube.com/@freecodecamp" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-      <article class="card reveal">
-        <span class="tag tag-coral">English</span>
-        <h3>BBC Learning English</h3>
-        <p>Everyday and academic English — pronunciation, grammar, and vocabulary, made for learners worldwide.</p>
-        <div class="meta">Best for: academic &amp; daily English</div>
-        <a class="link" href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener">Watch on YouTube</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= STUDY METHODS ================= -->
-<section class="section" id="methods">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">How to study</span>
-      <h2>Eight methods that actually work</h2>
-      <p>Science-backed ways to learn. Filter by your goal, pick one method, and use it for two weeks before judging it.</p>
-    </div>
-    <div class="filters reveal" id="methodFilters">
-      <button class="filter-btn active" data-filter="all">All methods</button>
-      <button class="filter-btn" data-filter="memorize">Memorize</button>
-      <button class="filter-btn" data-filter="understand">Understand deeply</button>
-      <button class="filter-btn" data-filter="focus">Stay focused</button>
-      <button class="filter-btn" data-filter="read">Read &amp; write</button>
-    </div>
-    <div class="grid" id="methodGrid">
-      <article class="card reveal" data-goal="focus">
-        <span class="tag tag-coral">Focus</span>
-        <h3>Pomodoro Technique</h3>
-        <p>Study for 25 focused minutes, then take a 5-minute break. After four rounds, take a longer 15–30 minute break. Short sprints beat long, distracted hours.</p>
-        <div class="meta">Try it: 4 rounds = about 2 hours</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="memorize">
-        <span class="tag tag-teal">Memorize</span>
-        <h3>Active Recall</h3>
-        <p>Close the book and test yourself. Trying to remember — even when you fail — strengthens memory far more than re-reading the same page five times.</p>
-        <div class="meta">Try it: flashcards, self-quizzes, blank-page recall</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Active_recall" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="memorize">
-        <span class="tag tag-teal">Memorize</span>
-        <h3>Spaced Repetition</h3>
-        <p>Review material at increasing intervals — after 1 day, 3 days, a week, a month. Review right before you would forget it, and it sticks for years.</p>
-        <div class="meta">Try it: free app Anki — <a href="https://apps.ankiweb.net/" target="_blank" rel="noopener">ankiweb.net</a></div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Spaced_repetition" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="understand">
-        <span class="tag tag-amber">Understand</span>
-        <h3>Feynman Technique</h3>
-        <p>Explain a topic in simple words, as if teaching a 12-year-old. Where you get stuck is exactly where you need to study more.</p>
-        <div class="meta">Try it: teach it to a friend — or a rubber duck</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Feynman_Technique" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="read">
-        <span class="tag tag-blue">Read &amp; Write</span>
-        <h3>Cornell Notes</h3>
-        <p>Split your page: notes on the right, questions on the left, a summary at the bottom. Review by covering the notes and answering your own questions.</p>
-        <div class="meta">Try it: one page per lecture</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Cornell_Notes" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="understand">
-        <span class="tag tag-amber">Understand</span>
-        <h3>Mind Mapping</h3>
-        <p>Start with the central idea and branch out with keywords, colors, and drawings. Seeing connections helps your brain organize complex topics.</p>
-        <div class="meta">Try it: one map per chapter, before revision</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Mind_map" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="read">
-        <span class="tag tag-blue">Read &amp; Write</span>
-        <h3>SQ3R</h3>
-        <p>Survey, Question, Read, Recite, Review. Turn chapter headings into questions first — then read to answer them. Reading with a purpose beats passive reading.</p>
-        <div class="meta">Try it: for every textbook chapter</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/SQ3R" target="_blank" rel="noopener">Learn more</a>
-      </article>
-      <article class="card reveal" data-goal="memorize">
-        <span class="tag tag-teal">Memorize</span>
-        <h3>Interleaving</h3>
-        <p>Mix topics in one study session instead of doing all of one subject, then all of another. It feels harder — but your exam performance improves.</p>
-        <div class="meta">Try it: alternate 2–3 subjects per session</div>
-        <a class="link" href="https://en.wikipedia.org/wiki/Interleaving" target="_blank" rel="noopener">Learn more</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= AFTER GRADUATION ================= -->
-<section class="section" id="after" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">After your bachelor's degree</span>
-      <h2>What can you become after graduation?</h2>
-      <p>Your degree is a beginning, not an ending. Eight real paths — pick the one that fits your goals, and take the first step this semester.</p>
-    </div>
-    <div class="grid-2">
-      <article class="card reveal">
-        <div class="path"><span class="path-num">1</span><div>
-          <h3>Master's Degree</h3>
-          <p>Specialize deeper in your field in 1–2 years. A master's opens doors to higher-paying roles and to academic careers — and many scholarships exist for international students.</p>
-          <div class="meta">First step: shortlist programs 12 months before you graduate</div>
-          <a class="link" href="https://www.mastersportal.com/" target="_blank" rel="noopener">Search master's programs</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">2</span><div>
-          <h3>PhD &amp; Research</h3>
-          <p>Become a researcher, lecturer, or scientist. A PhD takes 3–5 years and is often fully funded — you get paid to study what you love.</p>
-          <div class="meta">First step: find a supervisor whose research excites you</div>
-          <a class="link" href="https://www.findaphd.com/" target="_blank" rel="noopener">Find PhD positions</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">3</span><div>
-          <h3>Get a Job in Your Field</h3>
-          <p>Engineer, analyst, designer, nurse, teacher, developer — your degree qualifies you for graduate roles. Employers hire skills and attitude, not just grades.</p>
-          <div class="meta">First step: build a portfolio and apply before graduation</div>
-          <a class="link" href="https://www.coursera.org/" target="_blank" rel="noopener">Add job-ready skills on Coursera</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">4</span><div>
-          <h3>Internship → Full-Time</h3>
-          <p>The fastest route into a company. Many internships turn into full-time offers — and internships are often open to students in their final year.</p>
-          <div class="meta">First step: apply to 10 internships this month</div>
-          <a class="link" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener">Browse internships on LinkedIn</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">5</span><div>
-          <h3>Start a Business</h3>
-          <p>Turn a problem you see into a company. Students have built startups from dorm rooms — start small, solve one real problem, and learn as you go.</p>
-          <div class="meta">First step: validate your idea with 10 real users</div>
-          <a class="link" href="https://www.startupschool.org/" target="_blank" rel="noopener">Free startup course by Y Combinator</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">6</span><div>
-          <h3>Freelance &amp; Remote Work</h3>
-          <p>Design, writing, coding, translation, tutoring — sell your skills to clients worldwide, from anywhere, on your own schedule.</p>
-          <div class="meta">First step: one small project, one happy client, one review</div>
-          <a class="link" href="https://www.upwork.com/" target="_blank" rel="noopener">Find freelance work on Upwork</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">7</span><div>
-          <h3>Teach &amp; Tutor</h3>
-          <p>Teach what you know — online tutoring, language teaching, or becoming a school teacher. Teaching is also the best way to master a subject.</p>
-          <div class="meta">First step: tutor one student in your strongest subject</div>
-          <a class="link" href="https://www.coursera.org/" target="_blank" rel="noopener">Teaching skills on Coursera</a>
-        </div></div>
-      </article>
-      <article class="card reveal">
-        <div class="path"><span class="path-num">8</span><div>
-          <h3>Work Abroad</h3>
-          <p>Use your international experience as an advantage. Global companies value graduates who have lived, studied, and adapted across cultures.</p>
-          <div class="meta">First step: research work visas for your target country</div>
-          <a class="link" href="https://www.linkedin.com/learning/" target="_blank" rel="noopener">Career skills on LinkedIn Learning</a>
-        </div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CHECKLIST ================= -->
-<section class="section" id="checklist">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">New here?</span>
-      <h2>International student starter checklist</h2>
-      <p>Just arrived in a new country? Tick these off one by one. Your progress saves in this browser.</p>
-    </div>
-    <div class="checklist reveal" id="checklistBox">
-      <label class="check-item"><input type="checkbox"><span><b>Visa &amp; documents ready</b><span>Passport, visa, admission letter, and copies — digital and paper.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Housing sorted</b><span>Dorm or apartment confirmed before you land. Know your address.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Bank account opened</b><span>Local account for rent, food, and part-time job payments.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Local SIM card</b><span>Data and calls from day one — maps, messages, and emergencies.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Health insurance active</b><span>Required in most countries. Know what it covers and where to go.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Campus orientation attended</b><span>Meet the international office, find your classrooms, and ask questions.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Student ID &amp; email set up</b><span>Your ID unlocks the library, discounts, and campus systems.</span></span></label>
-      <label class="check-item"><input type="checkbox"><span><b>Joined a community</b><span>A student club, a study group, or your country's student association.</span></span></label>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Your progress</span><span id="progressText">0 of 8 done</span></div>
-        <div class="progress-track"><i id="progressBar"></i></div>
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Learning Is Easy with Aiproxcrop</h1>
+      <p class="lead">Everything an international student needs in one place — the best books, free YouTube lessons, proven study methods, and a clear map of what comes after your degree.</p>
+      <div class="hero-actions">
+        <a class="btn btn-teal" href="books.html">Explore Books</a>
+        <a class="btn btn-ghost" href="videos.html">Watch &amp; Learn</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num" data-count="10">0</div><div class="label">Essential books</div></div>
+        <div class="stat"><div class="num" data-count="10">0</div><div class="label">YouTube channels</div></div>
+        <div class="stat"><div class="num" data-count="8">0</div><div class="label">Study methods</div></div>
+        <div class="stat"><div class="num" data-count="8">0</div><div class="label">Career paths</div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= FOOTER ================= -->
+  <section class="section banded">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Explore the guides</h2>
+        <p>Four guides, one goal: help you study well, graduate strong, and know what comes next.</p>
+      </div>
+      <div class="grid">
+        <article class="card overview-card reveal">
+          <span class="tag">Books</span>
+          <h3>Books that change how you study</h3>
+          <div class="count">10 essential books</div>
+          <p>From Deep Work to free OpenStax textbooks — the reading list that changes how you study.</p>
+          <a class="link" href="books.html">Browse books</a>
+        </article>
+        <article class="card overview-card reveal">
+          <span class="tag">Videos</span>
+          <h3>Learn from YouTube — free, forever</h3>
+          <div class="count">10 YouTube channels</div>
+          <p>Free lessons from CrashCourse, Khan Academy, MIT OpenCourseWare, and more.</p>
+          <a class="link" href="videos.html">Watch the channels</a>
+        </article>
+        <article class="card overview-card reveal">
+          <span class="tag">How to Study</span>
+          <h3>Eight methods that actually work</h3>
+          <div class="count">8 study methods</div>
+          <p>Pomodoro, Active Recall, Spaced Repetition, and more — filter by your goal.</p>
+          <a class="link" href="methods.html">See the methods</a>
+        </article>
+        <article class="card overview-card reveal">
+          <span class="tag">After Graduation</span>
+          <h3>What can you become after graduation?</h3>
+          <div class="count">8 career paths</div>
+          <p>Master's, PhD, jobs, internships, startups, freelancing, and working abroad.</p>
+          <a class="link" href="after.html">Explore the paths</a>
+        </article>
+      </div>
+      <div class="card banner-card reveal">
+        <p><strong>New to the country?</strong> Start with the international student checklist — visa, housing, bank, SIM, health insurance, and more.</p>
+        <a class="btn btn-teal" href="checklist.html">Open the checklist</a>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer>
   <div class="container">
-    <h2 class="serif">Learning is easy — when you know where to look.</h2>
+    <h2>Learning is easy — when you know where to look.</h2>
     <p>Learning Is Easy with Aiproxcrop is a free collection of books, videos, study methods, and career paths for international students. All external links belong to their owners.</p>
     <div class="foot-links">
-      <a href="#books">Books</a>
-      <a href="#videos">Videos</a>
-      <a href="#methods">How to Study</a>
-      <a href="#after">After Graduation</a>
+      <a href="books.html">Books</a>
+      <a href="videos.html">Videos</a>
+      <a href="methods.html">How to Study</a>
+      <a href="after.html">After Graduation</a>
+      <a href="checklist.html">Checklist</a>
       <a href="https://github.com/Akbar-Lab-Droid/learning-is-easy" target="_blank" rel="noopener">GitHub Repo</a>
       <a href="https://github.com/AIPROXCROP" target="_blank" rel="noopener">Aiproxcrop</a>
     </div>
@@ -571,7 +113,6 @@ footer p{color:#9FB3AF;margin-top:10px;max-width:560px}
 <script>
 (function(){
   "use strict";
-  /* header + back-to-top */
   var header = document.getElementById("siteHeader");
   var topBtn = document.getElementById("topBtn");
   function onScroll(){
@@ -581,7 +122,6 @@ footer p{color:#9FB3AF;margin-top:10px;max-width:560px}
   window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
   topBtn.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
 
-  /* mobile nav */
   var burger = document.getElementById("burger");
   var navLinks = document.getElementById("navLinks");
   burger.addEventListener("click", function(){ navLinks.classList.toggle("open"); });
@@ -589,13 +129,11 @@ footer p{color:#9FB3AF;margin-top:10px;max-width:560px}
     a.addEventListener("click", function(){ navLinks.classList.remove("open"); });
   });
 
-  /* scroll reveal */
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
   }, {threshold:.12});
   document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 
-  /* count-up stats */
   var counters = document.querySelectorAll(".num[data-count]");
   var cio = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -612,43 +150,6 @@ footer p{color:#9FB3AF;margin-top:10px;max-width:560px}
     });
   }, {threshold:.6});
   counters.forEach(function(el){ cio.observe(el); });
-
-  /* method filters */
-  var filterBtns = document.querySelectorAll("#methodFilters .filter-btn");
-  var methodCards = document.querySelectorAll("#methodGrid .card");
-  filterBtns.forEach(function(btn){
-    btn.addEventListener("click", function(){
-      filterBtns.forEach(function(b){ b.classList.remove("active"); });
-      btn.classList.add("active");
-      var f = btn.dataset.filter;
-      methodCards.forEach(function(card){
-        var show = (f === "all" || card.dataset.goal === f);
-        card.classList.toggle("hidden", !show);
-      });
-    });
-  });
-
-  /* checklist with localStorage */
-  var boxes = document.querySelectorAll("#checklistBox input[type=checkbox]");
-  var progressBar = document.getElementById("progressBar");
-  var progressText = document.getElementById("progressText");
-  var saved = {};
-  try { saved = JSON.parse(localStorage.getItem("lie-checklist") || "{}"); } catch(e){ saved = {}; }
-  function updateProgress(){
-    var done = 0;
-    boxes.forEach(function(box, i){
-      box.checked = !!saved[i];
-      box.closest(".check-item").classList.toggle("done", box.checked);
-      if(box.checked) done++;
-    });
-    progressBar.style.width = (done / boxes.length * 100) + "%";
-    progressText.textContent = done + " of " + boxes.length + " done";
-    try { localStorage.setItem("lie-checklist", JSON.stringify(saved)); } catch(e){}
-  }
-  boxes.forEach(function(box, i){
-    box.addEventListener("change", function(){ saved[i] = box.checked; updateProgress(); });
-  });
-  updateProgress();
 })();
 </script>
 </body>
